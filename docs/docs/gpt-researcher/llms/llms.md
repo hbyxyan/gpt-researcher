@@ -1,6 +1,6 @@
 # Configure LLM
 
-As described in the [introduction](/docs/gpt-researcher/gptr/config), the default LLM and embedding is OpenAI due to its superior performance and speed. 
+As described in the [introduction](/docs/gpt-researcher/gptr/config), the default LLM and embedding now use Dashscope's Qwen models for strong performance and speed.
 With that said, GPT Researcher supports various open/closed source LLMs and embeddings, and you can easily switch between them by updating the `SMART_LLM`, `FAST_LLM` and `EMBEDDING` env variables. You might also need to include the provider API key and corresponding configuration params.
 
 Current supported LLMs are `openai`, `anthropic`, `azure_openai`, `cohere`, `google_vertexai`, `google_genai`, `fireworks`, `ollama`, `together`, `mistralai`, `huggingface`, `groq`, `bedrock` and `litellm`.
@@ -317,11 +317,11 @@ STRATEGIC_LLM=deepseek:deepseek-chat
 
 ```envs
 DASHSCOPE_API_KEY=[Your Key]
-export FAST_LLM=dashscope:qwen3-32b
-export SMART_LLM=dashscope:qwen-turbo-2025-04-28
+export FAST_LLM=dashscope:qwen-plus-latest
+export SMART_LLM=dashscope:qwen-plus-latest
 export STRATEGIC_LLM=dashscope:qwen-plus-latest
 
-export EMBEDDING=dashscope:text-embedding-v3
+export EMBEDDING=dashscope:text-embedding-v4
 ```
 
 Add `dashscope` to [requirements.txt](https://github.com/assafelovic/gpt-researcher/blob/master/requirements.txt) for Docker Support or `pip install` it

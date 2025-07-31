@@ -93,7 +93,7 @@ See the [Documentation](https://docs.gptr.dev/docs/gpt-researcher/getting-starte
 3. Set up API keys by exporting them or storing them in a `.env` file.
 
     ```bash
-    export OPENAI_API_KEY={Your OpenAI API Key here}
+    export DASHSCOPE_API_KEY={Your Dashscope API Key here}
     export TAVILY_API_KEY={Your Tavily API Key here}
     ```
 

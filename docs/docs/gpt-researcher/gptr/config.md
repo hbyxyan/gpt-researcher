@@ -5,9 +5,9 @@ The config.py enables you to customize GPT Researcher to your specific needs and
 Thanks to our amazing community and contributions, GPT Researcher supports multiple LLMs and Retrievers.
 In addition, GPT Researcher can be tailored to various report formats (such as APA), word count, research iterations depth, etc.
 
-GPT Researcher defaults to our recommended suite of integrations: [OpenAI](https://platform.openai.com/docs/overview) for LLM calls and [Tavily API](https://app.tavily.com) for retrieving real-time web information.
+GPT Researcher defaults to [Dashscope](https://dashscope.aliyuncs.com) for LLM calls and [Tavily API](https://app.tavily.com) for retrieving real-time web information.
 
-As seen below, OpenAI still stands as the superior LLM. We assume it will stay this way for some time, and that prices will only continue to decrease, while performance and speed increase over time.
+As seen below, Dashscope offers strong performance with the Qwen models. We assume prices will continue to decrease while performance and speed increase over time.
 
 <div style={{ marginBottom: '10px' }}>
 <img align="center" height="350" src="/img/leaderboard.png" />
@@ -19,11 +19,11 @@ The config JSON should follow the format/keys in the default config. Below is a 
 '''bash
 {
   "RETRIEVER": "tavily",
-  "EMBEDDING": "openai:text-embedding-3-small",
+  "EMBEDDING": "dashscope:text-embedding-v4",
   "SIMILARITY_THRESHOLD": 0.42,
-  "FAST_LLM": "openai:gpt-4o-mini",
-  "SMART_LLM": "openai:gpt-4.1",
-  "STRATEGIC_LLM": "openai:o4-mini",
+  "FAST_LLM": "dashscope:qwen-plus-latest",
+  "SMART_LLM": "dashscope:qwen-plus-latest",
+  "STRATEGIC_LLM": "dashscope:qwen-plus-latest",
   "LANGUAGE": "english",
   "CURATE_SOURCES": false,
   "FAST_TOKEN_LIMIT": 2000,
@@ -51,11 +51,11 @@ python gpt_researcher/main.py --config_path my_config.json
 Below is a list of current supported options:
 
 - **`RETRIEVER`**: Web search engine used for retrieving sources. Defaults to `tavily`. Options: `duckduckgo`, `bing`, `google`, `searchapi`, `serper`, `searx`. [Check here](https://github.com/assafelovic/gpt-researcher/tree/master/gpt_researcher/retrievers) for supported retrievers
-- **`EMBEDDING`**: Embedding model. Defaults to `openai:text-embedding-3-small`. Options: `ollama`, `huggingface`, `azure_openai`, `custom`.
+- **`EMBEDDING`**: Embedding model. Defaults to `dashscope:text-embedding-v4`. Options: `ollama`, `huggingface`, `azure_openai`, `custom`.
 - **`SIMILARITY_THRESHOLD`**: Threshold value for similarity comparison when processing documents. Defaults to `0.42`.
-- **`FAST_LLM`**: Model name for fast LLM operations such summaries. Defaults to `openai:gpt-4o-mini`.
-- **`SMART_LLM`**: Model name for smart operations like generating research reports and reasoning. Defaults to `openai:gpt-4.1`.
-- **`STRATEGIC_LLM`**: Model name for strategic operations like generating research plans and strategies. Defaults to `openai:o4-mini`.
+- **`FAST_LLM`**: Model name for fast LLM operations such summaries. Defaults to `dashscope:qwen-plus-latest`.
+- **`SMART_LLM`**: Model name for smart operations like generating research reports and reasoning. Defaults to `dashscope:qwen-plus-latest`.
+- **`STRATEGIC_LLM`**: Model name for strategic operations like generating research plans and strategies. Defaults to `dashscope:qwen-plus-latest`.
 - **`LANGUAGE`**: Language to be used for the final research report. Defaults to `english`.
 - **`CURATE_SOURCES`**: Whether to curate sources for research. This step adds an LLM run which may increase costs and total run time but improves quality of source selection. Defaults to `False`.
 - **`FAST_TOKEN_LIMIT`**: Maximum token limit for fast LLM responses. Defaults to `2000`.
